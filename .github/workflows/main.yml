@@ -1,0 +1,20 @@
+name: AAPanel Installation
+
+on:
+  push:
+    branches:
+      - main  # Adjust this branch as needed
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Download AAPanel script
+      run: wget -O install.sh http://www.aapanel.com/script/install-ubuntu_6.0_en.sh
+
+    - name: Execute AAPanel installation script
+      run: sudo bash install.sh aapanel
